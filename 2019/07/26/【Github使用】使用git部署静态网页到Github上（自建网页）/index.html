@@ -1,0 +1,530 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Wuben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Wuben">
+    
+
+    
+    <meta name="description" content="学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？1. 新建一个存储器名称为stu.github.io, 后缀github.io必须带，勾选生成md文件。 2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看可以看到已经发布成功 3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wuben">
+<meta property="og:url" content="https://wubenxwss.github.io/2019/07/26/【Github使用】使用git部署静态网页到Github上（自建网页）/index.html">
+<meta property="og:site_name" content="Wuben">
+<meta property="og:description" content="学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？1. 新建一个存储器名称为stu.github.io, 后缀github.io必须带，勾选生成md文件。 2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看可以看到已经发布成功 3.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190725005402624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190725005048827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190725015056476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190725015236333.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019072501532467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190725023307841.png">
+<meta property="og:updated_time" content="2019-07-25T16:52:29.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wuben">
+<meta name="twitter:description" content="学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？1. 新建一个存储器名称为stu.github.io, 后缀github.io必须带，勾选生成md文件。 2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看可以看到已经发布成功 3.">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190725005402624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70">
+<meta name="twitter:creator" content="@Wubenss">
+<link rel="publisher" href="xswult@gmail.com">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Wuben" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Wuben" title="Wuben"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Wuben">Wuben</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wubenxwss.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/26/【Github使用】使用git部署静态网页到Github上（自建网页）/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/xswult@gmail.com?rel=author" title="Wuben" target="_blank" itemprop="author">Wuben</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-25T16:52:06.692Z" itemprop="datePublished"> 发表于 2019-07-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？"><span class="toc-number">1.</span> <span class="toc-text">学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-新建一个存储器"><span class="toc-number"></span> <span class="toc-text">1. 新建一个存储器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在设置中把-Source-改为-Master，随便选择一个主题，然后打开publish-网址查看"><span class="toc-number"></span> <span class="toc-text">2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-回到Git，测试是否连接成功"><span class="toc-number"></span> <span class="toc-text">3. 回到Git，测试是否连接成功</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何修改后然后重新发布呢？"><span class="toc-number"></span> <span class="toc-text">如何修改后然后重新发布呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现存着乱码问题"><span class="toc-number"></span> <span class="toc-text">现存着乱码问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法，使用utf-8编码，立马见效。"><span class="toc-number"></span> <span class="toc-text">解决方法，使用utf-8编码，立马见效。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网址：https-wubenxwss-github-io-mystu-github-io"><span class="toc-number"></span> <span class="toc-text">网址：https://wubenxwss.github.io/mystu.github.io/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目网址：https-github-com-wubenxwss-mystu-github-io"><span class="toc-number"></span> <span class="toc-text">项目网址：https://github.com/wubenxwss/mystu.github.io</span></a>
+		
+		</div>
+		
+		<h6 id="学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？"><a href="#学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？" class="headerlink" title="学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？"></a>学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？</h6><h4 id="1-新建一个存储器"><a href="#1-新建一个存储器" class="headerlink" title="1. 新建一个存储器"></a>1. 新建一个存储器</h4><p>名称为<code>stu.github.io</code>, 后缀<code>github.io</code>必须带，勾选生成md文件。</p>
+<h4 id="2-在设置中把-Source-改为-Master，随便选择一个主题，然后打开publish-网址查看"><a href="#2-在设置中把-Source-改为-Master，随便选择一个主题，然后打开publish-网址查看" class="headerlink" title="2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看"></a>2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看</h4><p><img src="https://img-blog.csdnimg.cn/20190725005402624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以看到已经发布成功<br><img src="https://img-blog.csdnimg.cn/20190725005048827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="3-回到Git，测试是否连接成功"><a href="#3-回到Git，测试是否连接成功" class="headerlink" title="3. 回到Git，测试是否连接成功"></a>3. 回到Git，测试是否连接成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com //测试</span><br><span class="line">Hi wubenxwss! You&apos;ve successfully authenticated, but GitHub does not provide shell access.//提示成功</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Reinitialized existing Git repository in D:/wbstu/.git/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/wubenxwss/stu.github.io</span><br></pre></td></tr></table></figure>
+<p>本地多了<code>stu.github.io</code>文件夹和两个文件，自己再新建一个index.html<br><img src="https://img-blog.csdnimg.cn/20190725015056476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd stu.github.io</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;First&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+<p>然后输入用户名，输入密码，到设置中点开发布网址<br><img src="https://img-blog.csdnimg.cn/20190725015236333.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019072501532467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODA3OTI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样就发布成功了。</p>
+<p>那么下一步我要修改index.html内容再发布。</p>
+<p>直接把原来网页改名为<code>index.html</code></p>
+<h4 id="如何修改后然后重新发布呢？"><a href="#如何修改后然后重新发布呢？" class="headerlink" title="如何修改后然后重新发布呢？"></a>如何修改后然后重新发布呢？</h4><p>在<code>stu.github.io</code>文件夹右键 Git Bash Here</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>上传所有文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></p>
+<p>或单文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add Index.html</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;注释&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h4 id="现存着乱码问题"><a href="#现存着乱码问题" class="headerlink" title="现存着乱码问题"></a>现存着乱码问题</h4><p><img src="https://img-blog.csdnimg.cn/20190725023307841.png" alt="在这里插入图片描述"></p>
+<h3 id="解决方法，使用utf-8编码，立马见效。"><a href="#解决方法，使用utf-8编码，立马见效。" class="headerlink" title="解决方法，使用utf-8编码，立马见效。"></a>解决方法，使用utf-8编码，立马见效。</h3><pre><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+</code></pre><h4 id="网址：https-wubenxwss-github-io-mystu-github-io"><a href="#网址：https-wubenxwss-github-io-mystu-github-io" class="headerlink" title="网址：https://wubenxwss.github.io/mystu.github.io/"></a>网址：<a href="https://wubenxwss.github.io/mystu.github.io/">https://wubenxwss.github.io/mystu.github.io/</a></h4><h4 id="项目网址：https-github-com-wubenxwss-mystu-github-io"><a href="#项目网址：https-github-com-wubenxwss-mystu-github-io" class="headerlink" title="项目网址：https://github.com/wubenxwss/mystu.github.io"></a>项目网址：<a href="https://github.com/wubenxwss/mystu.github.io" target="_blank" rel="noopener">https://github.com/wubenxwss/mystu.github.io</a></h4>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://wubenxwss.github.io/2019/07/26/【Github使用】使用git部署静态网页到Github上（自建网页）/" data-title="Wuben" data-tsina="5535627886" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/10/03/笑看人间事/"  title="笑看人间事">
+ <strong>下一篇：</strong><br/> 
+ <span>笑看人间事
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？"><span class="toc-number">1.</span> <span class="toc-text">学生党难免要经常用学校导航网页，但苦于网页广告过多，前几天有空进行了业余魔改，一直是保存在本地的，那么现在想搞搞事情，如何用Git发布该网页，在小朋友面前耍一下下呢？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-新建一个存储器"><span class="toc-number"></span> <span class="toc-text">1. 新建一个存储器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在设置中把-Source-改为-Master，随便选择一个主题，然后打开publish-网址查看"><span class="toc-number"></span> <span class="toc-text">2. 在设置中把 Source 改为 Master，随便选择一个主题，然后打开publish 网址查看</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-回到Git，测试是否连接成功"><span class="toc-number"></span> <span class="toc-text">3. 回到Git，测试是否连接成功</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何修改后然后重新发布呢？"><span class="toc-number"></span> <span class="toc-text">如何修改后然后重新发布呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现存着乱码问题"><span class="toc-number"></span> <span class="toc-text">现存着乱码问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法，使用utf-8编码，立马见效。"><span class="toc-number"></span> <span class="toc-text">解决方法，使用utf-8编码，立马见效。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网址：https-wubenxwss-github-io-mystu-github-io"><span class="toc-number"></span> <span class="toc-text">网址：https://wubenxwss.github.io/mystu.github.io/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目网址：https-github-com-wubenxwss-mystu-github-io"><span class="toc-number"></span> <span class="toc-text">项目网址：https://github.com/wubenxwss/mystu.github.io</span></a>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="wubenxwss" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/吟唱/" title="吟唱">吟唱<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/自我介绍/" title="自我介绍">自我介绍<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/first/" title="first">first<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/qq_42807924" target="_blank" title="我在这里学习到了很多">CSDN博客</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wubenss.lofter.com/" target="_blank" title="灵性之旅">乐乎博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5535627886&verifier=c0459fce&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 存在即是虚无。 <br/>
+			这是吾本虚无的个人博客。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5535627886" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wubenxwss" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/Wubenss" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/wu.benss" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/wubenss" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/xswult@gmail.com?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:13750403955@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Wuben">Wuben</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Shaosen Wu';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
